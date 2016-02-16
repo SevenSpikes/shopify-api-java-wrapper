@@ -36,10 +36,22 @@ public final class JsonConstants
     // Product
     public static final String PRODUCTS = "products";
 
+    public static final String VARIANT_ID = "variant_id";
+
     // Collect
     public static final String COLLECTS = "collects";
 
     public static final String PRODUCT_ID = "product_id";
     public static final String COLLECTION_ID = "collection_id";
 
+    // Order
+    public static final String ORDERS = "orders";
+
+    public static final String TOTAL_PRICE = "total_price";
+    public static final String FINANCIAL_STATUS = "financial_status";
+    public static final String CUSTOMER = "customer";
+    public static final String LINE_ITEMS = "line_items";
+    public static final String VARIANT_TITLE = "variant_title";
+    public static final String NAME = "name";
+    public static final String QUANTITY = "quantity";
 }

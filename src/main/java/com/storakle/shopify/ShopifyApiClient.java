@@ -38,7 +38,9 @@ public interface ShopifyApiClient
     @RequestLine("GET /admin/collects/count.json")
     Count getCollectsCount();
 
-//
-//    @RequestLine("GET /api/orders?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
-//    OrderList getOrders(@Param("limit") Integer limit, @Param("page") Integer page, @Param("since-id") String sinceId, @Param("fields") String fields);
+    @RequestLine("GET /admin/orders.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
+    OrderList getOrders(@Param("limit") Integer limit, @Param("since-id") String sinceId, @Param("page") Integer page, @Param("fields") String fields);
+
+    @RequestLine("GET /admin/orders/count.json")
+    Count getOrdersCount();
 }
