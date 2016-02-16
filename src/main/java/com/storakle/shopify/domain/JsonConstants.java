@@ -4,6 +4,9 @@ public final class JsonConstants
 {
     public static final String ID = "id";
 
+    // Count
+    public static final String COUNT = "count";
+
     // Customer
     public static final String CUSTOMERS = "customers";
 
