@@ -54,4 +54,11 @@ public final class JsonConstants
     public static final String VARIANT_TITLE = "variant_title";
     public static final String NAME = "name";
     public static final String QUANTITY = "quantity";
+
+    // Webhook
+    public static final String WEBHOOK = "webhook";
+
+    public static final String TOPIC = "topic";
+    public static final String ADDRESS = "address";
+    public static final String FORMAT = "format";
 }

@@ -1,4 +1,4 @@
-package com.storakle.shopify.auth;
+package com.storakle.shopify.interceptors;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
