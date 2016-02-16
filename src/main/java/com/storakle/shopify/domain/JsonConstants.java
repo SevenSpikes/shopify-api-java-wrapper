@@ -35,4 +35,11 @@ public final class JsonConstants
 
     // Product
     public static final String PRODUCTS = "products";
+
+    // Collect
+    public static final String COLLECTS = "collects";
+
+    public static final String PRODUCT_ID = "product_id";
+    public static final String COLLECTION_ID = "collection_id";
+
 }
