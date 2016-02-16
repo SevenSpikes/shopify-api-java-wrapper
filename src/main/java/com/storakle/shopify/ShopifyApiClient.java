@@ -2,6 +2,7 @@ package com.storakle.shopify;
 
 import com.storakle.shopify.domain.CustomCollectionList;
 import com.storakle.shopify.domain.CustomerList;
+import com.storakle.shopify.domain.ProductList;
 import com.storakle.shopify.domain.SmartCollectionList;
 import feign.Param;
 import feign.RequestLine;
@@ -18,9 +19,9 @@ public interface ShopifyApiClient
 
     @RequestLine("GET /admin/smart_collections.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
     SmartCollectionList getSmartCollections(@Param("limit") Integer limit, @Param("page") Integer page, @Param("since-id") String sinceId, @Param("fields") String fields);
-//
-//    @RequestLine("GET /api/products?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
-//    ProductList getProducts(@Param("limit") Integer limit, @Param("page") Integer page, @Param("since-id") String sinceId, @Param("fields") String fields);
+
+    @RequestLine("GET /admin/products.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
+    ProductList getProducts(@Param("limit") Integer limit, @Param("page") Integer page, @Param("since-id") String sinceId, @Param("fields") String fields);
 //
 //    @RequestLine("GET /api/collects?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
 //    ProductCategoryMappingList getProductCategoryMappings(@Param("limit") Integer limit, @Param("page") Integer page, @Param("since-id") String sinceId, @Param("fields") String fields);

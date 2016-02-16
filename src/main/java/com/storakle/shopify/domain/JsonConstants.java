@@ -29,4 +29,7 @@ public final class JsonConstants
     public static final String SMART_COLLECTIONS = "smart_collections";
 
     public static final String TITLE = "title";
+
+    // Product
+    public static final String PRODUCTS = "products";
 }
