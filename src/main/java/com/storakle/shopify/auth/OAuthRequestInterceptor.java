@@ -14,13 +14,15 @@ public class OAuthRequestInterceptor implements RequestInterceptor
      *
      * @param accessToken the OAuth accessToken to use for authentication
      */
-    public OAuthRequestInterceptor(String accessToken) {
+    public OAuthRequestInterceptor(String accessToken)
+    {
         checkNotNull(accessToken, "accessToken");
         this.accessToken = accessToken;
     }
 
     @Override
-    public void apply(RequestTemplate template) {
+    public void apply(RequestTemplate template)
+    {
         template.header("X-Shopify-Access-Token", accessToken);
     }
 }

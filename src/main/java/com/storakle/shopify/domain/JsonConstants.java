@@ -23,4 +23,10 @@ public final class JsonConstants
     public static final String ZIP = "zip";
     public static final String ADDRESS1 = "address1";
     public static final String ADDRESS2 = "address2";
+
+    // Collections
+    public static final String CUSTOM_COLLECTIONS = "custom_collections";
+    public static final String SMART_COLLECTIONS = "smart_collections";
+
+    public static final String TITLE = "title";
 }
