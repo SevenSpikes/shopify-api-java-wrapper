@@ -60,6 +60,7 @@ public final class JsonConstants
 
     // Webhook
     public static final String WEBHOOK = "webhook";
+    public static final String WEBHOOKS = "webhooks";
 
     public static final String TOPIC = "topic";
     public static final String ADDRESS = "address";
