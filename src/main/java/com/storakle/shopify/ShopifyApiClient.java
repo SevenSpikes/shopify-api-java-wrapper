@@ -47,6 +47,9 @@ public interface ShopifyApiClient
     @RequestLine("GET /admin/webhooks.json")
     WebhookList getWebhooks();
 
+    @RequestLine("GET /admin/webhooks/count.json")
+    Count getWebhooksCount();
+
     @RequestLine("POST /admin/webhooks.json")
     Webhook createWebhook(Webhook webhook);
 }
