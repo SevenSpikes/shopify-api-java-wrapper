@@ -48,12 +48,15 @@ public final class JsonConstants
     public static final String ORDERS = "orders";
 
     public static final String TOTAL_PRICE = "total_price";
+    public static final String DISCOUNT = "total_discounts";
     public static final String FINANCIAL_STATUS = "financial_status";
     public static final String CUSTOMER = "customer";
     public static final String LINE_ITEMS = "line_items";
     public static final String VARIANT_TITLE = "variant_title";
     public static final String NAME = "name";
     public static final String QUANTITY = "quantity";
+    public static final String BILLING_ADDRESS = "billing_address";
+    public static final String SHIPPING_ADDRESS = "shipping_address";
 
     // Webhook
     public static final String WEBHOOK = "webhook";

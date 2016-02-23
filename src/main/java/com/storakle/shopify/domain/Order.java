@@ -20,11 +20,20 @@ public class Order
     @JsonProperty(value = JsonConstants.TOTAL_PRICE)
     private BigDecimal totalPrice;
 
+    @JsonProperty(value = JsonConstants.DISCOUNT)
+    private BigDecimal discount;
+
     @JsonProperty(value = JsonConstants.FINANCIAL_STATUS)
-    private String financialStatus;
+    private FinancialStatus financialStatus;
 
     @JsonProperty(value = JsonConstants.CUSTOMER)
     private Customer customer;
+
+    @JsonProperty(value = JsonConstants.BILLING_ADDRESS)
+    private Address billingAddress;
+
+    @JsonProperty(value = JsonConstants.SHIPPING_ADDRESS)
+    private Address shippingAddress;
 
     @JsonProperty(value = JsonConstants.LINE_ITEMS)
     private List<LineItem> lineItems;
