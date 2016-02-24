@@ -44,8 +44,8 @@ public interface ShopifyApiClient
     @RequestLine("GET /admin/orders/count.json")
     Count getOrdersCount();
 
-    @RequestLine("GET /admin/webhooks.json")
-    WebhookList getWebhooks();
+    @RequestLine("GET /admin/webhooks.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
+    WebhookList getWebhooks(@Param("limit") Integer limit, @Param("since-id") String sinceId, @Param("page") Integer page, @Param("fields") String fields);
 
     @RequestLine("GET /admin/webhooks/count.json")
     Count getWebhooksCount();
