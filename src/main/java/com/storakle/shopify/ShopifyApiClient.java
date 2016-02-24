@@ -32,7 +32,7 @@ public interface ShopifyApiClient
     @RequestLine("GET /admin/products/count.json")
     Count getProductsCount();
 
-    @RequestLine("GET /api/collects?limit={limit}&page={page}&fields={fields}")
+    @RequestLine("GET /admin/collects.json?limit={limit}&page={page}&fields={fields}")
     CollectList getCollects(@Param("limit") Integer limit, @Param("page") Integer page, @Param("fields") String fields);
 
     @RequestLine("GET /admin/collects/count.json")
