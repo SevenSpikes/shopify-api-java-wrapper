@@ -3,6 +3,8 @@ package com.storakle.shopify.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Product
 {
@@ -19,5 +21,5 @@ public class Product
     private Image featuredImage;
 
     @JsonProperty(value = JsonConstants.PRODUCT_VARIANTS)
-    private ProductVariant productVariants;
+    private List<ProductVariant> productVariants;
 }
