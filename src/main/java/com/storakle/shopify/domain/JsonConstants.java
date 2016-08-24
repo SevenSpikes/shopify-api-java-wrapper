@@ -37,6 +37,10 @@ public final class JsonConstants
     public static final String PRODUCTS = "products";
 
     public static final String VARIANT_ID = "variant_id";
+    public static final String HANDLE = "handle";
+    public static final String IMAGE = "image";
+    public static final String PRICE = "price";
+    public static final String PRODUCT_VARIANTS = "variants";
 
     // Collect
     public static final String COLLECTS = "collects";
@@ -65,4 +69,7 @@ public final class JsonConstants
     public static final String TOPIC = "topic";
     public static final String ADDRESS = "address";
     public static final String FORMAT = "format";
+
+    // Image
+    public static final String SRC = "src";
 }
