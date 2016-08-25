@@ -3,6 +3,8 @@ package com.storakle.shopify.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class LineItem
 {
@@ -26,4 +28,7 @@ public class LineItem
 
     @JsonProperty(value = JsonConstants.QUANTITY)
     private int quantity;
+
+    @JsonProperty(value = JsonConstants.PRICE)
+    private BigDecimal price;
 }
