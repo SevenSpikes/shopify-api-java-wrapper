@@ -17,6 +17,9 @@ public class Order
     @JsonProperty(value = JsonConstants.ID)
     private long id;
 
+    @JsonProperty(value = JsonConstants.NAME)
+    private String name;
+
     @JsonProperty(value = JsonConstants.TOTAL_PRICE)
     private BigDecimal totalPrice;
 
