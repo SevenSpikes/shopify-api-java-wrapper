@@ -11,4 +11,7 @@ public class CustomCollection
 
     @JsonProperty(value = JsonConstants.TITLE)
     private String name;
+
+    @JsonProperty(value = JsonConstants.HANDLE)
+    private String handle;
 }
