@@ -50,6 +50,12 @@ public interface ShopifyApiClient
     @RequestLine("GET /admin/webhooks/count.json")
     Count getWebhooksCount();
 
+    @RequestLine("GET /admin/orders/{orderId}/transactions.json?limit={limit}&since_id={since-id}")
+    TransactionList getTransactions(@Param("orderId") String orderId, @Param("limit") Integer limit, @Param("since-id") String sinceId);
+
+    @RequestLine("GET /admin/orders/{orderId}/transactions/count.json")
+    Count getTransactionsCount(@Param("orderId") String orderId);
+
     @RequestLine("POST /admin/webhooks.json")
     Webhook createWebhook(Webhook webhook);
 }

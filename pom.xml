@@ -6,7 +6,7 @@
 
     <groupId>com.storakle.shopify</groupId>
     <artifactId>shopify-api-java-wrapper</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>

@@ -72,4 +72,12 @@ public final class JsonConstants
 
     // Image
     public static final String SRC = "src";
+
+    // Transaction
+    public static final String TRANSACTIONS = "transactions";
+    public static final String ORDER_ID = "order_id";
+    public static final String KIND = "kind";
+    public static final String STATUS = "status";
+    public static final String CURRENCY = "currency";
+    public static final String AMOUNT = "amount";
 }
