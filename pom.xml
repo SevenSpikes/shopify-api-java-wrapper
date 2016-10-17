@@ -6,7 +6,7 @@
 
     <groupId>com.storakle.shopify</groupId>
     <artifactId>shopify-api-java-wrapper</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
@@ -59,6 +59,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>2.4.0</version>
         </dependency>
 
     </dependencies>
