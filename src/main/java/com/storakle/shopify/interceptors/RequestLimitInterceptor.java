@@ -37,6 +37,7 @@ public class RequestLimitInterceptor implements RequestInterceptor
         try
         {
             int permits = _semaphore.availablePermits();
+            System.out.println("Number of existing permits: " + permits);
 
         }
         catch (NullPointerException ex)
@@ -54,7 +55,12 @@ public class RequestLimitInterceptor implements RequestInterceptor
 
             while (tryToAcquirePermit)
             {
+                System.out.println("Available permits: " + _semaphore.availablePermits());
+
                 String permitId = _semaphore.tryAcquire(1000, 500, TimeUnit.MILLISECONDS);
+
+                System.out.println("Permit acquired with ID: " + permitId);
+                System.out.println("Available permits after permit were acquired: " + _semaphore.availablePermits());
 
                 // Stop the loop if the permit is acquired
                 if (permitId != null)
