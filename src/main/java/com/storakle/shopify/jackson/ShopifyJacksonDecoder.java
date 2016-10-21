@@ -33,8 +33,6 @@ public class ShopifyJacksonDecoder extends JacksonDecoder
 
             Long remainingCalls = _shopifyRedissonManager.calculateAvalableCredits(createdCalls);
 
-            System.out.println("Remaining Credits: " + remainingCalls);
-
             RedissonClient redisson = _shopifyRedissonManager.getRedissonClient();
 
             RLock lock = redisson.getLock(_shopifyRedissonManager.getMyShopifyUrl());
