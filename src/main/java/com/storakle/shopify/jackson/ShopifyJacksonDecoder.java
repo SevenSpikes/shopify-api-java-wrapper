@@ -3,7 +3,6 @@ package com.storakle.shopify.jackson;
 import com.storakle.shopify.redisson.ShopifyRedissonManager;
 import feign.Response;
 import feign.jackson.JacksonDecoder;
-import org.assertj.core.util.Strings;
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -28,7 +27,7 @@ public class ShopifyJacksonDecoder extends JacksonDecoder
 
         String[] callLimitValues = shopifyApiCallLimitHeader.iterator().next().split("/");
 
-        if(!Strings.isNullOrEmpty(callLimitValues[0]))
+        if(callLimitValues[0] != null && callLimitValues[0] != "")
         {
             Long createdCalls = Long.parseLong(callLimitValues[0]);
 
