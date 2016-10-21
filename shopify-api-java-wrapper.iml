@@ -18,12 +18,12 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.redisson:redisson:2.4.0" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-common:4.0.41.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.0.41.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.0.41.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.0.41.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.0.41.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.redisson:redisson:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.0.42.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.0.42.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.0.42.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.0.42.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.0.42.Final" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-stream:2.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:2.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.0" level="project" />
@@ -31,7 +31,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.7.6" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.15" level="project" />
     <orderEntry type="library" name="Maven: net.openhft:zero-allocation-hashing:0.5" level="project" />
-    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.3.19" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.4.26" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-bean:3.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-core:3.7.1" level="project" />
   </component>

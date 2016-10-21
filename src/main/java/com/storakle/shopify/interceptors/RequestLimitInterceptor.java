@@ -1,79 +1,87 @@
 package com.storakle.shopify.interceptors;
 
+import com.storakle.shopify.redisson.ShopifyRedissonManager;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import org.redisson.Redisson;
-import org.redisson.api.RPermitExpirableSemaphore;
+import org.redisson.api.RAtomicLong;
+import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
-
-import java.util.concurrent.TimeUnit;
-
-import static feign.Util.checkNotNull;
 
 public class RequestLimitInterceptor implements RequestInterceptor
 {
-    private RPermitExpirableSemaphore _semaphore;
+    private ShopifyRedissonManager _shopifyRedissonManager;
 
-    public RequestLimitInterceptor(String nodeAddress, String myShopifyUrl)
+    public RequestLimitInterceptor(ShopifyRedissonManager shopifyRedissonManager)
     {
-        checkNotNull(nodeAddress, "nodeAddress");
-        checkNotNull(myShopifyUrl, "myShopifyUrl");
+        _shopifyRedissonManager = shopifyRedissonManager;
 
-        Config config = new Config();
-        config.useElasticacheServers()
-                .setScanInterval(2000) // cluster state scan interval in milliseconds
-                .addNodeAddress(nodeAddress);
-
-        RedissonClient _redissonClient = Redisson.create(config);
-
-        _semaphore = _redissonClient.getPermitExpirableSemaphore(myShopifyUrl);
-
-        // If there are no permits set this will throw a NullPointerException.
-        // This means that the permits should be added. If the addPermits is executed more than once,
-        // each consecutive call will add the permits to the existing ones. eg: 35, 70, etc.
-        // The permits are set to 35 and not 40, because there should be a reserve, so that there are permits available
-        // for other things, for example requests made by the shopify plugin.
-        try
-        {
-            int permits = _semaphore.availablePermits();
-            System.out.println("Number of existing permits: " + permits);
-
-        }
-        catch (NullPointerException ex)
-        {
-            _semaphore.addPermits(35);
-        }
+//        _shopifyRedissonManager.getRedissonClient().getKeys().flushall();
     }
 
     @Override
     public void apply(RequestTemplate template)
     {
-        try
+        Boolean tryGetCredit = true;
+
+        RedissonClient redisson = _shopifyRedissonManager.getRedissonClient();
+
+        while (tryGetCredit)
         {
-            Boolean tryToAcquirePermit = true;
+            RLock lock = redisson.getLock(_shopifyRedissonManager.getMyShopifyUrl());
 
-            while (tryToAcquirePermit)
+            RAtomicLong isDefaultRemainingCreditsValueSet = redisson.getAtomicLong(_shopifyRedissonManager.getIsDefaultRemainingCreditsValueSetKey());
+
+            RAtomicLong remainingCreditsAtomic = redisson.getAtomicLong(_shopifyRedissonManager.getRemainingCreditsKey());
+
+            if(isDefaultRemainingCreditsValueSet.get() == 0)
             {
-                System.out.println("Available permits: " + _semaphore.availablePermits());
+                remainingCreditsAtomic.set(_shopifyRedissonManager.getCreditLimit());
+                isDefaultRemainingCreditsValueSet.set(1);
+            }
 
-                String permitId = _semaphore.tryAcquire(1000, 500, TimeUnit.MILLISECONDS);
+            RAtomicLong lastRequestTimeAtomic = redisson.getAtomicLong(_shopifyRedissonManager.getLastRequestTimeKey());
+            Long remainingCredits = remainingCreditsAtomic.get();
 
-                System.out.println("Permit acquired with ID: " + permitId);
-                System.out.println("Available permits after permit were acquired: " + _semaphore.availablePermits());
+            if(remainingCredits > 0)
+            {
+                // These values are set here, because a request can be made while the current request is still in progress.
+                // We set the actual values inside the decoder (when the request is complete), but if we don't set them here
+                // as well a raised condition can occur.
+                remainingCreditsAtomic.set(remainingCredits - 1);
+                lastRequestTimeAtomic.set(System.currentTimeMillis());
 
-                // Stop the loop if the permit is acquired
-                if (permitId != null)
+                tryGetCredit = false;
+                lock.unlock();
+            }
+            else
+            {
+                // Check if there were enough time since the last request time.
+                // If the latest request's remaining calls were 0 and no calls were made after that, the remaining credits
+                // will not be updated. This is why the last request time is used as well.
+                long availableCalls = (long)Math.floor((System.currentTimeMillis() - lastRequestTimeAtomic.get())/500);
+
+                if(availableCalls > 0)
                 {
-                    tryToAcquirePermit = false;
+                    remainingCreditsAtomic.set(availableCalls - 1);
+                    lastRequestTimeAtomic.set(System.currentTimeMillis());
+
+                    tryGetCredit = false;
+                    lock.unlock();
+                }
+                else
+                {
+                    lock.unlock();
+
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        System.out.println("Error while waiting for available Shopify call credit. " + e.getMessage());
+                    }
                 }
             }
         }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-            System.out.println("Error acquiring the lock permit. " + e.getMessage());
-        }
-
     }
 }
