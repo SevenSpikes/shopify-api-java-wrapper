@@ -27,6 +27,7 @@ public class RequestLimitInterceptor implements RequestInterceptor
 
         while (tryGetCredit)
         {
+            // Lock per shopify store. The lock is distributed, so it will work for multiple threads and applications.
             RLock lock = redisson.getLock(_shopifyRedissonManager.getMyShopifyUrl());
 
             RAtomicLong isDefaultRemainingCreditsValueSet = redisson.getAtomicLong(_shopifyRedissonManager.getIsDefaultRemainingCreditsValueSetKey());

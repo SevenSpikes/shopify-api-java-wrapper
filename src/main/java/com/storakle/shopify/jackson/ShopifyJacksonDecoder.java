@@ -35,6 +35,7 @@ public class ShopifyJacksonDecoder extends JacksonDecoder
 
             RedissonClient redisson = _shopifyRedissonManager.getRedissonClient();
 
+            // Lock per shopify store. The lock is distributed, so it will work for multiple threads and applications.
             RLock lock = redisson.getLock(_shopifyRedissonManager.getMyShopifyUrl());
 
             RAtomicLong remainingCreditsAtomic = redisson.getAtomicLong(_shopifyRedissonManager.getRemainingCreditsKey());
