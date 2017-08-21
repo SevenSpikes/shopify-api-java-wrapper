@@ -16,4 +16,7 @@ public class ProductVariant
 
     @JsonProperty(value = JsonConstants.PRICE)
     private BigDecimal price;
+
+    @JsonProperty(value = JsonConstants.COMPARE_AT_PRICE)
+    private BigDecimal compareAtPrice;
 }

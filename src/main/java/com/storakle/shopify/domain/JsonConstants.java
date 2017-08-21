@@ -40,6 +40,7 @@ public final class JsonConstants
     public static final String HANDLE = "handle";
     public static final String IMAGE = "image";
     public static final String PRICE = "price";
+    public static final String COMPARE_AT_PRICE = "compare_at_price";
     public static final String PUBLISHED_AT = "published_at";
     public static final String PRODUCT_VARIANTS = "variants";
 
