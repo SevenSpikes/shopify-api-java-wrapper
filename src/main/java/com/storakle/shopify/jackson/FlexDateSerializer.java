@@ -18,20 +18,7 @@ public final class FlexDateSerializer extends JsonSerializer<Date>
     @Override
     public void serialize(final Date value, final JsonGenerator gen, final SerializerProvider arg2) throws IOException
     {
-        gen.writeString(getFormatter().format(value));
-    }
-
-    //
-    //
-    private static SimpleDateFormat getFormatter()
-    {
-        return FormatHolder.INSTANCE;
-    }
-
-    /**
-     */
-    private interface FormatHolder
-    {
-        SimpleDateFormat INSTANCE = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
+        gen.writeString(formatter.format(value));
     }
 }

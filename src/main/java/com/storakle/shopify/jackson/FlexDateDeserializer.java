@@ -21,10 +21,12 @@ public final class FlexDateDeserializer extends JsonDeserializer<Date>
     @Override
     public Date deserialize(final JsonParser parser, final DeserializationContext context) throws IOException
     {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
+
         final String date = parser.getText();
         try
         {
-            return getFormatter().parse(date);
+            return formatter.parse(date);
         }
         catch (final ParseException ex)
         {
@@ -32,19 +34,4 @@ public final class FlexDateDeserializer extends JsonDeserializer<Date>
             return DateDeserializer.instance.deserialize(parser, context);
         }
     }
-
-    //
-    //
-    private static SimpleDateFormat getFormatter()
-    {
-        return FormatHolder.INSTANCE;
-    }
-
-    /**
-     */
-    private interface FormatHolder
-    {
-        SimpleDateFormat INSTANCE = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
-    }
-
 }
