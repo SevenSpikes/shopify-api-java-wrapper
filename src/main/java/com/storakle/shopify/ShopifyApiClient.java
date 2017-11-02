@@ -38,10 +38,10 @@ public interface ShopifyApiClient
     @RequestLine("GET /admin/collects/count.json")
     Count getCollectsCount();
 
-    @RequestLine("GET /admin/orders.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
+    @RequestLine("GET /admin/orders.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}&status=any")
     OrderList getOrders(@Param("limit") Integer limit, @Param("since-id") String sinceId, @Param("page") Integer page, @Param("fields") String fields);
 
-    @RequestLine("GET /admin/orders/count.json")
+    @RequestLine("GET /admin/orders/count.json?status=any")
     Count getOrdersCount();
 
     @RequestLine("GET /admin/webhooks.json?limit={limit}&since_id={since-id}&page={page}&fields={fields}")
