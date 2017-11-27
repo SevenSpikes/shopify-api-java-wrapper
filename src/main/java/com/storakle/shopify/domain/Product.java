@@ -25,6 +25,9 @@ public class Product
     @JsonProperty(value = JsonConstants.IMAGE)
     private Image featuredImage;
 
+    @JsonProperty(value = JsonConstants.IMAGES)
+    private List<Image> images;
+
     @JsonProperty(value = JsonConstants.PUBLISHED_AT)
     @JsonDeserialize(using = FlexDateDeserializer.class)
     @JsonSerialize(using = FlexDateSerializer.class)
