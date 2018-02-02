@@ -58,4 +58,17 @@ public interface ShopifyApiClient
 
     @RequestLine("POST /admin/webhooks.json")
     Webhook createWebhook(Webhook webhook);
+
+
+    @RequestLine("POST /admin/recurring_application_charges.json")
+    RecurringApplicationChargeResponse createRecurringApplicationCharge(RecurringApplicationChargeRequest request);
+
+    @RequestLine("DELETE /admin/recurring_application_charges/{chargeId}.json")
+    void cancelRecurringApplicationCharge(@Param("chargeId") String chargeId);
+
+    @RequestLine("POST /admin/recurring_application_charges/{chargeId}/activate.json")
+    RecurringApplicationChargeResponse activateRecurringApplicationCharge(@Param("chargeId") String chargeId);
+
+    @RequestLine("GET /admin/recurring_application_charges/{chargeId}.json")
+    RecurringApplicationChargeResponse getRecurringApplicationCharge(@Param("chargeId") String chargeId);
 }
