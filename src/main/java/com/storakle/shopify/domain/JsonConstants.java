@@ -91,6 +91,7 @@ public final class JsonConstants
     public static final String CHARGE_ID = "id";
     public static final String PLAN_NAME = "name";
     public static final String PLAN_PRICE = "price";
+    public static final String TERMS = "terms";
     public static final String CHARGE_STATUS = "status";
     public static final String BILLING_ON = "billing_on";
     public static final String UPDATED_AT = "updated_at";

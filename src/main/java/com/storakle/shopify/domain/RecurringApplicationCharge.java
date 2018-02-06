@@ -23,6 +23,9 @@ public class RecurringApplicationCharge
     @JsonProperty(value = JsonConstants.PLAN_PRICE)
     private BigDecimal price;
 
+    @JsonProperty(value = JsonConstants.TERMS)
+    private String terms;
+
     // Pending/Accepted/Declined/Active/Frozen/Canceled
     @JsonProperty(value = JsonConstants.CHARGE_STATUS)
     private String status;
