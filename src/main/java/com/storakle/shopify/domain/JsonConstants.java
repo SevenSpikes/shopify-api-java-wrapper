@@ -85,4 +85,27 @@ public final class JsonConstants
     public static final String STATUS = "status";
     public static final String CURRENCY = "currency";
     public static final String AMOUNT = "amount";
+
+    // Recurring application
+    public static final String RECURRING_APPLICATION_CHARGE = "recurring_application_charge";
+
+    public static final String CHARGE_ID = "id";
+    public static final String PLAN_NAME = "name";
+    public static final String PLAN_PRICE = "price";
+    public static final String TERMS = "terms";
+    public static final String CHARGE_STATUS = "status";
+    public static final String BILLING_ON = "billing_on";
+    public static final String UPDATED_AT = "updated_at";
+    public static final String TEST = "test";
+    public static final String ACTIVATED_ON = "activated_on";
+    public static final String TRIAL_ENDS_ON = "trial_ends_on";
+    public static final String CANCELED_ON = "cancelled_on";
+    public static final String TRIAL_DAYS = "trial_days";
+    public static final String CAPPED_AMOUNT = "capped_amount";
+    public static final String BALANCE_USED = "balance_used";
+    public static final String BALANCE_REMAINING = "balance_remaining";
+    public static final String RISK_LEVEL = "risk_level";
+    public static final String RETURN_URL = "return_url";
+    public static final String DECORATED_RETURN_URL = "decorated_return_url";
+    public static final String CONFIRMATION_URL = "confirmation_url";
 }
