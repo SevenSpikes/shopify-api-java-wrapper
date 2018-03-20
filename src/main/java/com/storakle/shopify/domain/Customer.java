@@ -25,6 +25,9 @@ public class Customer
     @JsonProperty(value = JsonConstants.LAST_NAME)
     private String lastName;
 
+    @JsonProperty(value = JsonConstants.ACCEPTS_MARKETING)
+    private Boolean acceptsMarketing;
+
     @JsonProperty(value = JsonConstants.CREATED_AT)
     @JsonDeserialize(using = FlexDateDeserializer.class)
     @JsonSerialize(using = FlexDateSerializer.class)
