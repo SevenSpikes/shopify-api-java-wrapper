@@ -25,6 +25,12 @@ public class Customer
     @JsonProperty(value = JsonConstants.LAST_NAME)
     private String lastName;
 
+    @JsonProperty(value = JsonConstants.NOTE)
+    private String note;
+
+    @JsonProperty(value = JsonConstants.TAGS)
+    private String tags;
+
     @JsonProperty(value = JsonConstants.ACCEPTS_MARKETING)
     private Boolean acceptsMarketing;
 
