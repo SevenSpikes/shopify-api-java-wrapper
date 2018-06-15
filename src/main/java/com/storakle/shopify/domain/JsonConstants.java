@@ -14,6 +14,7 @@ public final class JsonConstants
     public static final String FIRST_NAME = "first_name";
     public static final String LAST_NAME = "last_name";
     public static final String CREATED_AT = "created_at";
+    public static final String PROCESSED_AT = "processed_at";
     public static final String ACCEPTS_MARKETING = "accepts_marketing";
     public static final String NOTE = "note";
     public static final String TAGS = "tags";

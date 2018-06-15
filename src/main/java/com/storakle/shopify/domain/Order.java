@@ -45,4 +45,9 @@ public class Order
     @JsonDeserialize(using = FlexDateDeserializer.class)
     @JsonSerialize(using = FlexDateSerializer.class)
     private Date createdAt;
+
+    @JsonProperty(value = JsonConstants.PROCESSED_AT)
+    @JsonDeserialize(using = FlexDateDeserializer.class)
+    @JsonSerialize(using = FlexDateSerializer.class)
+    private Date processedAt;
 }
