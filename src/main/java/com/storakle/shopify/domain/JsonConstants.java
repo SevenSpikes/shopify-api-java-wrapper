@@ -40,6 +40,7 @@ public final class JsonConstants
     // Product
     public static final String PRODUCTS = "products";
 
+    public static final String PRODUCT_EXISTS = "product_exists";
     public static final String VARIANT_ID = "variant_id";
     public static final String HANDLE = "handle";
     public static final String IMAGE = "image";

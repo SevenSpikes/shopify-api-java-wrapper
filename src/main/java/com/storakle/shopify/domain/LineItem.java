@@ -14,6 +14,9 @@ public class LineItem
     @JsonProperty(value = JsonConstants.PRODUCT_ID)
     private long productId;
 
+    @JsonProperty(value = JsonConstants.PRODUCT_EXISTS)
+    private boolean productExists;
+
     @JsonProperty(value = JsonConstants.VARIANT_ID)
     private long variantId;
 
