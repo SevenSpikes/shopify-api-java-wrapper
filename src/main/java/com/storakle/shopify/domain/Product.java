@@ -35,4 +35,7 @@ public class Product
 
     @JsonProperty(value = JsonConstants.PRODUCT_VARIANTS)
     private List<ProductVariant> productVariants;
+
+    @JsonProperty(value = JsonConstants.PRODUCT_VARIANT_OPTIONS)
+    private List<VariantOption> variantOptions;
 }

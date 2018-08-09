@@ -49,6 +49,15 @@ public final class JsonConstants
     public static final String COMPARE_AT_PRICE = "compare_at_price";
     public static final String PUBLISHED_AT = "published_at";
     public static final String PRODUCT_VARIANTS = "variants";
+    public static final String PRODUCT_VARIANT_OPTIONS = "options";
+
+    public static final String OPTION_1 = "option1";
+    public static final String OPTION_2 = "option2";
+    public static final String OPTION_3 = "option3";
+
+    public static final String OPTION_NAME = "name";
+    public static final String OPTION_POSITION = "position";
+    public static final String OPTION_VALUES = "values";
 
     // Collect
     public static final String COLLECTS = "collects";
